@@ -1,0 +1,136 @@
+<div class="container">
+  <h2>Gerenciamento de clientes</h2>
+
+  <h3>Cadastrar cliente</h3>
+  <form (ngSubmit)="onCreate()">
+    <div>
+      <label for="nome">Nome:</label>
+      <input
+        type="text"
+        id="nome"
+        [(ngModel)]="cliente.nome"
+        name="nome"
+        required
+      />
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="cliente.email"
+        name="email"
+        required
+      />
+    </div>
+    <div>
+      <label for="telefone">Telefone:</label>
+      <input
+        type="tel"
+        id="telefone"
+        [(ngModel)]="cliente.telefone"
+        name="telefone"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary">Adicionar cliente</button>
+  </form>
+
+  <hr />
+
+  <h3>Clientes cadastrados</h3>
+  <ul *ngIf="clientes && clientes.length > 0; else noClientes">
+    <li *ngFor="let cliente of clientes">
+      <span><strong>Id:</strong> {{ cliente.id }}</span>
+      <span><strong>Nome:</strong> {{ cliente.nome }}</span>
+      <span><strong>Email:</strong> {{ cliente.email }}</span>
+      <span><strong>Telefone:</strong> {{ cliente.telefone }}</span>
+
+      <div class="buttons">
+        <button (click)="editCliente(cliente)" class="btn btn-warning btn-sm">
+          Editar
+        </button>
+        <button
+          *ngIf="cliente.id"
+          (click)="deleteCliente(cliente.id)"
+          class="btn btn-danger btn-sm"
+        >
+          Excluir
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <hr />
+
+  <ng-template #noClientes>
+    <p>Nenhum cliente cadastrado.</p>
+  </ng-template>
+
+  <h3>Buscando cliente pelo ID</h3>
+  <form (ngSubmit)="fetchClienteById(clienteId)">
+    <div>
+      <label for="clienteId">Insira o Id:</label>
+      <input
+        type="number"
+        id="clienteId"
+        [(ngModel)]="clienteId"
+        name="clienteId"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn btn-secondary"
+      [disabled]="clienteId === undefined || clienteId <= 0"
+    >
+      Buscar Cliente
+    </button>
+  </form>
+
+  <div *ngIf="clienteAtual">
+    <h4>Cliente Encontrado:</h4>
+    <p><strong>Nome:</strong> {{ clienteAtual.nome }}</p>
+    <p><strong>Email:</strong> {{ clienteAtual.email }}</p>
+    <p><strong>Telefone:</strong> {{ clienteAtual.telefone }}</p>
+  </div>
+
+  <hr />
+  <h3>Edição do cliente</h3>
+  <form *ngIf="editMode" (ngSubmit)="onUpdate()">
+    <div>
+      <label for="editNome">Nome:</label>
+      <input
+        type="text"
+        id="editNome"
+        [(ngModel)]="clienteAtual!.nome"
+        name="editNome"
+        required
+      />
+    </div>
+    <div>
+      <label for="editEmail">Email:</label>
+      <input
+        type="email"
+        id="editEmail"
+        [(ngModel)]="clienteAtual!.email"
+        name="editEmail"
+        required
+      />
+    </div>
+    <div>
+      <label for="editTelefone">Telefone:</label>
+      <input
+        type="tel"
+        id="editTelefone"
+        [(ngModel)]="telefoneAtual"
+        name="editTelefone"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-warning">Atualizar Cliente</button>
+    <button type="button" (click)="resetUpdateForm()" class="btn btn-secondary">
+      Cancelar
+    </button>
+  </form>
+</div>

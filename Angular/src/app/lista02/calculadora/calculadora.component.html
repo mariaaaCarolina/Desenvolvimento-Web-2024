@@ -1,0 +1,26 @@
+<div class="calculator">
+  <h1>Calculadora</h1>
+
+  <input
+    type="number"
+    [(ngModel)]="number1"
+    placeholder="Digite o primeiro número"
+  />
+
+  <input
+    type="number"
+    [(ngModel)]="number2"
+    placeholder="Digite o segundo número"
+  />
+
+  <select [(ngModel)]="operation">
+    <option value="add">+</option>
+    <option value="subtract">-</option>
+    <option value="multiply">*</option>
+    <option value="divide">/</option>
+  </select>
+
+  <button (click)="calculate()">Calcular</button>
+
+  <h2 *ngIf="result !== ''">Resultado: {{ result }}</h2>
+</div>

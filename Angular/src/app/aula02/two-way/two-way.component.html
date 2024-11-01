@@ -1,0 +1,9 @@
+<input type="text" [ngModel]="texto" (ngModelChange)="atualiza($event)" />
+
+<p>
+  {{ texto }}
+</p>
+<p>
+  <input type="text" [(ngModel)]="texto2" />
+</p>
+<p>Digitado: {{ texto2 }}</p>

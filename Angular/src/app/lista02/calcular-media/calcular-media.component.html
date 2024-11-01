@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Cálculo da Média</h2>
+  <form (ngSubmit)="calcularMedia()">
+    <div>
+      <label for="ac1">Nota AC1:</label>
+      <input type="number" id="ac1" [(ngModel)]="ac1" name="ac1" required />
+    </div>
+    <div>
+      <label for="ac2">Nota AC2:</label>
+      <input type="number" id="ac2" [(ngModel)]="ac2" name="ac2" required />
+    </div>
+    <div>
+      <label for="ag">Nota AG:</label>
+      <input type="number" id="ag" [(ngModel)]="ag" name="ag" required />
+    </div>
+    <div>
+      <label for="af">Nota AF:</label>
+      <input type="number" id="af" [(ngModel)]="af" name="af" required />
+    </div>
+    <button type="submit">Calcular</button>
+  </form>
+
+  <div class="resultado" *ngIf="media !== null">
+    <h3>Média Final: {{ media | number : "1.2-2" }}</h3>
+    <h4>{{ resultado }}</h4>
+  </div>
+</div>

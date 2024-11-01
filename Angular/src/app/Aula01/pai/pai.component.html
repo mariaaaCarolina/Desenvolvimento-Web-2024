@@ -1,0 +1,38 @@
+<p>
+  Shows the example of <code>NgbScrollSpyItem</code> usage to highlight items
+  and handle scrolling
+</p>
+
+<div class="row">
+  <div class="col-4">
+    <div id="list-example" class="list-group">
+      <a
+        routerLink="filho1"
+        class="list-group-item list-group-item-action"
+        [ngbScrollSpyItem]="spy"
+        fragment="items"
+      >
+        1 - Filho 1
+      </a>
+      <a
+        routerLink="filho2"
+        class="list-group-item list-group-item-action"
+        [ngbScrollSpyItem]="spy"
+        fragment="items"
+      >
+        2 - Filho 2
+      </a>
+    </div>
+  </div>
+  <div class="col-8">
+    <div
+      ngbScrollSpy
+      #spy="ngbScrollSpy"
+      rootMargin="16px"
+      class="bg-light p-3 rounded-2 mb-3"
+      style="height: 200px"
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

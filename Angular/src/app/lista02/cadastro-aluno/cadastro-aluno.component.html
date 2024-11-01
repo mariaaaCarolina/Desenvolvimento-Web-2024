@@ -1,0 +1,61 @@
+<div>
+  <h1>Cadastro de Aluno</h1>
+
+  <form [formGroup]="alunoForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="ra">RA:</label>
+      <input id="ra" formControlName="ra" placeholder="Digite o RA" />
+      <div *ngIf="alunoForm.get('ra')?.invalid && alunoForm.get('ra')?.touched">
+        <small style="color: red">Campo obrigatório.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="nome">Nome:</label>
+      <input id="nome" formControlName="nome" placeholder="Digite o nome" />
+      <div
+        *ngIf="alunoForm.get('nome')?.invalid && alunoForm.get('nome')?.touched"
+      >
+        <small style="color: red">Campo obrigatório.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" formControlName="email" placeholder="Digite o email" />
+      <div
+        *ngIf="
+          alunoForm.get('email')?.invalid && alunoForm.get('email')?.touched
+        "
+      >
+        <small style="color: red">Email inválido ou campo obrigatório.</small>
+      </div>
+    </div>
+
+    <div>
+      <label for="celular">Celular:</label>
+      <input
+        id="celular"
+        formControlName="celular"
+        placeholder="Digite o celular"
+      />
+      <div
+        *ngIf="
+          alunoForm.get('celular')?.invalid && alunoForm.get('celular')?.touched
+        "
+      >
+        <small style="color: red">Campo obrigatório.</small>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="alunoForm.invalid">Cadastrar</button>
+  </form>
+
+  <div class="resultado" *ngIf="alunoCadastrado">
+    <h2>Aluno Cadastrado:</h2>
+    <p>RA: {{ alunoCadastrado.ra }}</p>
+    <p>Nome: {{ alunoCadastrado.nome }}</p>
+    <p>Email: {{ alunoCadastrado.email }}</p>
+    <p>Celular: {{ alunoCadastrado.celular }}</p>
+  </div>
+</div>

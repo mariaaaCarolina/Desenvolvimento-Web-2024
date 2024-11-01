@@ -1,0 +1,53 @@
+<div ngbAccordion #accordion="ngbAccordion">
+  <div ngbAccordionItem="first">
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>Exemplos de ngIf</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>
+          <app-diretiva-ng-if></app-diretiva-ng-if>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div ngbAccordionItem="second">
+    <h2 ngbAccordionHeader>
+      <button ngbAccordionButton>Exemplos de ngFor</button>
+    </h2>
+    <div ngbAccordionCollapse>
+      <div ngbAccordionBody>
+        <ng-template>
+          <app-diretiva-ng-for></app-diretiva-ng-for>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<button
+  class="btn btn-sm btn-outline-primary me-2"
+  (click)="accordion.toggle('first')"
+>
+  Toggle first
+</button>
+<button
+  class="btn btn-sm btn-outline-primary me-2"
+  (click)="accordion.toggle('second')"
+>
+  Toggle second
+</button>
+<button
+  class="btn btn-sm btn-outline-primary me-2"
+  (click)="accordion.expandAll()"
+>
+  Expand all
+</button>
+<button
+  class="btn btn-sm btn-outline-primary me-2"
+  (click)="accordion.collapseAll()"
+>
+  Collapse all
+</button>

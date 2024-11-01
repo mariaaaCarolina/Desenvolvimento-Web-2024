@@ -1,0 +1,8 @@
+<div *ngIf="usuario">
+  <p>
+    <strong>Você está logado:</strong> {{ usuario.nome }} ({{ usuario.email }})
+  </p>
+</div>
+<div *ngIf="!usuario">
+  <p>Nenhum usuário logado.</p>
+</div>
