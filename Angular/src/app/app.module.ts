@@ -32,6 +32,7 @@ import { ClienteService } from './lista03/cliente.service';
 import { UsuarioService } from './lista03/usuario.service';
 import { ClienteComponent } from './lista03/cliente/cliente.component';
 import { UsuarioLoginComponent } from './lista03/usuario-login/usuario-login.component';
+import { CadClienteComponent } from './Aula05/cad-cliente/cad-cliente.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { UsuarioLoginComponent } from './lista03/usuario-login/usuario-login.com
     DiretivaNgForComponent,
     ClienteComponent,
     UsuarioLoginComponent,
+    CadClienteComponent,
   ],
   imports: [
     BrowserModule,

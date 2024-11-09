@@ -1,16 +1,51 @@
+<div class="row">
+  <div class="col-10">
+    <label for="texto" class="form-label">Nome</label>
+    <input
+      type="text"
+      class="form-control"
+      id="texto"
+      placeholder="Digite o nome para consulta"
+      [(ngModel)]="texto"
+    />
+  </div>
+  <div class="col-2">
+    <button
+      class="btn btn-primary"
+      style="margin-top: 30px"
+      (click)="pesquisar()"
+    >
+      Pesquisar
+    </button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 d-flex justify-content-end">
+    <button type="button" class="btn btn-primary" (click)="open()">Novo</button>
+  </div>
+  <div class="col-12">
+    <hr />
+  </div>
+</div>
+
 <table class="table">
   <thead>
     <tr>
       <th scope="col">Nome</th>
-      <th scope="col">Email</th>
+      <th scope="col">E-mail</th>
       <th scope="col">Cidade</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let cli of clientes">
+    <tr *ngFor="let cli of clientesFiltrados">
       <th scope="row">{{ cli.nome }}</th>
       <td>{{ cli.email }}</td>
       <td>{{ cli.cidade }}</td>
+      <td>
+        <button type="button" class="btn btn-primary" (click)="open(cli)">
+          Atualizar
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>
